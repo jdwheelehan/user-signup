@@ -26,13 +26,13 @@ def validate_info():
     vpass_error = ''
     email_error = ''
 
-    if username == '':
+    if not username:
         user_error = 'Please enter a username.'
         
     if len(username) < 3 or len(username) > 20 or ' ' in username:
             user_error = 'Username invalid'
     
-    if password == '':
+    if not password:
         pass_error = 'Please enter a password.'
 
     if len(password) < 3 or len(password) > 20 or ' ' in password:
@@ -44,8 +44,11 @@ def validate_info():
     if vpassword != password:
         vpass_error = "Passwords do not match."
 
-    if len(email) >= 1 and len(email) < 3 or len(email) > 20 or ' ' in email or '@' not in email:
+    if in email:
+        if len(email) < 3 or len(email) > 20 or ' ' in email or '@' not in email:
         email_error = "Enter valid email please."
+    else:
+        email_error = ''
     
     if not user_error and not pass_error and not vpass_error and not email_error:
       
